@@ -7,24 +7,20 @@ exports[`RenderPage renders the page unchanged 1`] = `
   >
     <div>
       <h2>
-        Welcome!
+        About
       </h2>
       <p>
-        Your easy-notion-blog deployed successfully!
-      </p>
-      <p>
-        Have fun!
-      </p>
-      <p>
-        easy-notion-blog powered by
+        SRE エンジニアの
          
         <a
-          href="https://github.com/otoyo/easy-notion-blog"
+          href="https://yumenomatayume.net"
           rel="noopener"
           target="_blank"
         >
-          otoyo/easy-notion-blog
+          yumenomatayume
         </a>
+         
+        によるブログです。
       </p>
     </div>
   </div>
