@@ -762,6 +762,7 @@ function _buildPost(data) {
     OGImage:
       prop.OGImage.files.length > 0 ? prop.OGImage.files[0].file.url : null,
     Rank: prop.Rank.number,
+    Like: prop.Like.number,
   }
 
   return post
@@ -797,4 +798,19 @@ function _buildRichText(item) {
   }
 
   return richText
+}
+
+export async function incrementLikes(post:Post) {
+  const result = await client.pages.update({
+    page_id: post.PageId,
+    properties: {
+      'Like': (post.Like || 0) + 1,
+    },
+  })
+
+  if (!result) {
+    return null
+  }
+
+  return _buildPost(result)
 }
