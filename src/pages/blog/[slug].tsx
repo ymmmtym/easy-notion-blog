@@ -28,6 +28,7 @@ import {
   getAllTags,
   getAllBlocksByBlockId,
 } from '../../lib/notion/client'
+import LikeButton from '../../components/like-button'
 
 export async function getStaticProps({ params: { slug } }) {
   const post = await getPostBySlug(slug)
@@ -148,6 +149,7 @@ const RenderPost = ({
                 id={post.Slug}
               />
             )}
+            <LikeButton slug={post.Slug} />
           </footer>
         </div>
       </div>
