@@ -1,6 +1,7 @@
 import DocumentHead from '../components/document-head'
 import ExtLink from '../components/ext-link'
 import styles from '../styles/page.module.css'
+import { NEXT_PUBLIC_URL } from '../lib/notion/server-constants'
 
 const RenderPage = () => (
   <div className={styles.container}>
@@ -15,6 +16,9 @@ const RenderPage = () => (
         </ExtLink>
         {' '}が運営する個人ブログです。<br />
         エンジニア向けの記事が多めです。
+      </p>
+      <p>
+        ブログの RSS フィードは <code>{NEXT_PUBLIC_URL}/feed</code> を RSS リーダーにご登録ください。
       </p>
       <h2>🔗 Links</h2>
       <p>
