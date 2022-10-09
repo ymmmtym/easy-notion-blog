@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import DocumentHead from '../components/document-head'
 import ExtLink from '../components/ext-link'
 import styles from '../styles/page.module.css'
@@ -30,6 +32,9 @@ const RenderPage = () => (
           <li><ExtLink href="https://blog.yumenomatayume.net">旧個人ブログ</ExtLink></li>
         </ul>
       </p>
+      <h2>🧚 Activity</h2>
+      <h3>GitHub</h3>
+      <ExtLink href="https://github.com/ymmmtym"><Image src="https://raw.githubusercontent.com/ymmmtym/ymmmtym/main/dist/github-snake.svg" width={880} height={192} alt="GitHub Snake"></Image></ExtLink>
     </div>
   </div>
 )

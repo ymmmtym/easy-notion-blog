@@ -32,7 +32,7 @@ if (!DATABASE_ID) {
 
 module.exports = {
   images: {
-    domains: ['s3.us-west-2.amazonaws.com', 'images.unsplash.com'],
+    domains: ['s3.us-west-2.amazonaws.com', 'images.unsplash.com', 'raw.githubusercontent.com'],
   },
 
   outputFileTracing: false,
