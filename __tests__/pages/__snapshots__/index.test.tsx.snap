@@ -7,10 +7,10 @@ exports[`RenderPage renders the page unchanged 1`] = `
   >
     <div>
       <h2>
-        About
+        📣 About（このサイトについて）
       </h2>
       <p>
-        SRE エンジニアの
+        SRE エンジニアである
          
         <a
           href="https://yumenomatayume.net"
@@ -20,7 +20,68 @@ exports[`RenderPage renders the page unchanged 1`] = `
           yumenomatayume
         </a>
          
-        によるブログです。
+        が運営する個人ブログです。
+        <br />
+        エンジニア向けの記事が多めです。
+      </p>
+      <p>
+        ブログの RSS フィードは 
+        <code>
+          /feed
+        </code>
+         を RSS リーダーにご登録ください。
+      </p>
+      <h2>
+        🔗 Links
+      </h2>
+      <p>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/ymmmtym"
+              rel="noopener"
+              target="_blank"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://yumenomatayume.net"
+              rel="noopener"
+              target="_blank"
+            >
+              Portfolio
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://zenn.dev/ymmmtym"
+              rel="noopener"
+              target="_blank"
+            >
+              Zenn
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://scrapbox.io/yumenomatayume"
+              rel="noopener"
+              target="_blank"
+            >
+              Scrapbox
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://blog.yumenomatayume.net"
+              rel="noopener"
+              target="_blank"
+            >
+              旧個人ブログ
+            </a>
+          </li>
+        </ul>
       </p>
     </div>
   </div>
