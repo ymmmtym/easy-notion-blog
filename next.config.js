@@ -36,4 +36,10 @@ module.exports = {
   },
 
   outputFileTracing: false,
+
+  async rewrites() {
+    return [
+      { source: '/feed', destination: '/api/feed' },
+    ]
+  },
 }
