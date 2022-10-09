@@ -49,7 +49,7 @@ function createRSS(posts = []) {
 
   return `<?xml version="1.0" encoding="utf-8"?>
   <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>😽 yumenomatayume.log の RSS feed</title>
+    <title>yumenomatayume.log</title>
     <subtitle>yumenomatayume's blog RSS feed</subtitle>
     <link href="${NEXT_PUBLIC_URL}/feed" rel="self" type="application/rss+xml"/>
     <link href="${NEXT_PUBLIC_URL}" />${updated}
