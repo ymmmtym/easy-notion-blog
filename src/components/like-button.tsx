@@ -16,7 +16,7 @@ const LikeButton = (props: Props) => {
   }
 
   return (
-    <button onClick={handleClick}>Like</button>
+    <span>👍 <button onClick={handleClick}>いいね！する</button></span>
   )
 }
 
