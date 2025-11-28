@@ -230,7 +230,14 @@ exports[`RenderPost renders the page unchanged 1`] = `
             </figcaption>
           </figure>
         </div>
-        <footer />
+        <footer>
+          <span>
+            👍
+            <button>
+              いいね！する
+            </button>
+          </span>
+        </footer>
       </div>
     </div>
     <div
