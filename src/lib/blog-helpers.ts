@@ -69,3 +69,12 @@ export const parseYouTubeVideoId = (url: URL): string => {
 
   return ''
 }
+
+
+
+export const getMonthlyLink = (year: number, month: string) => {
+  return `/blog/monthly/${year}-${month}`
+}
+
+
+

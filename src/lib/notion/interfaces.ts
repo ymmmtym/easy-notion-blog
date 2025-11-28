@@ -10,6 +10,14 @@ export interface Post {
   Like: number
 }
 
+
+export interface MonthlyArchive {
+  year: number
+  month: string
+  count: number
+}
+
+
 export interface Block {
   Id: string
   Type: string

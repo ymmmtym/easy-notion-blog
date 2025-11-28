@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { Post } from '../lib/notion/interfaces'
+import { Post, MonthlyArchive } from '../lib/notion/interfaces'
 import NotionBlocks from './notion-block'
 import {
   getBeforeLink,
@@ -154,3 +154,30 @@ export const PostsNotFound = () => (
     Woops! did not find the posts, redirecting you back to the blog index
   </div>
 )
+
+
+export const MonthlyLinkList = ({ archives }) => {
+  if (!archives || archives.length === 0) return null
+
+  return (
+    <ul>
+      {archives.map((archive: MonthlyArchive) => (
+        <li key={`${archive.year}-${archive.month}`}>
+          <Link href="/blog/monthly/[year-month]" as={getMonthlyLink(archive.year, archive.month)} passHref>
+            <a>{`${archive.year}-${archive.month} (${archive.count})`}</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export const MonthlyArchiveLink = ({ heading, archives }) => (
+  <div className={styles.blogTagLink}>
+    <h3>{heading}</h3>
+    <NoContents contents={archives} />
+    <MonthlyLinkList archives={archives} />
+  </div>
+)
+
+

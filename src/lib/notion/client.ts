@@ -712,6 +712,27 @@ export async function getAllTags() {
     .sort()
 }
 
+
+export async function getMonthlyArchives() {
+  const allPosts = await getAllPosts()
+  const archives = allPosts.reduce((acc, post) => {
+    const date = new Date(post.Date)
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const key = `${year}-${month}`
+    if (!acc[key]) {
+      acc[key] = { year, month, count: 0 }
+    }
+    acc[key].count++
+    return acc
+  }, {} as Record<string, MonthlyArchive>)
+  return Object.values(archives).sort((a, b) => {
+    return new Date(`${b.year}-${b.month}-01`).getTime() - new Date(`${a.year}-${a.month}-01`).getTime()
+  })
+}
+
+
+
 function _buildFilter(conditions = []) {
   if (process.env.NODE_ENV === 'development') {
     return { and: conditions }
