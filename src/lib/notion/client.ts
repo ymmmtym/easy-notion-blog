@@ -33,6 +33,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { Client } = require('@notionhq/client')
 import * as blogIndexCache from './blog-index-cache'
+import { getMonthStr } from '../blog-helpers'
 
 const client = new Client({
   auth: NOTION_API_SECRET,
@@ -711,6 +712,38 @@ export async function getAllTags() {
     .map(option => option.name)
     .sort()
 }
+
+
+export async function getAllMonths() {
+  const allPosts = await getAllPosts()
+  const monthsSet = new Set(allPosts.map(post => getMonthStr(post.Date)))
+  return Array.from(monthsSet).sort((a, b) => b.localeCompare(a))
+}
+
+export async function getPostsByMonth(month: string, pageSize = 10) {
+  const allPosts = await getAllPosts()
+  return allPosts
+    .filter(post => getMonthStr(post.Date) === month)
+    .slice(0, pageSize)
+}
+
+export async function getPostsByMonthBefore(month: string, date: string, pageSize = 10) {
+  const allPosts = await getAllPosts()
+  return allPosts
+    .filter(post => getMonthStr(post.Date) === month && post.Date < date)
+    .sort((a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime())
+    .slice(0, pageSize)
+}
+
+export async function getFirstPostByMonth(month: string) {
+  const allPosts = await getAllPosts()
+  const monthPosts = allPosts.filter(post => getMonthStr(post.Date) === month)
+  if (monthPosts.length === 0) {
+    return null
+  }
+  return monthPosts.sort((a, b) => new Date(a.Date).getTime() - new Date(b.Date).getTime())[0]
+}
+
 
 function _buildFilter(conditions = []) {
   if (process.env.NODE_ENV === 'development') {

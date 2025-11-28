@@ -1,5 +1,6 @@
 import DocumentHead from '../../components/document-head'
 import {
+  BlogMonthLink,
   BlogPostLink,
   BlogTagLink,
   NextPageLink,
@@ -12,6 +13,7 @@ import {
 } from '../../components/blog-parts'
 import styles from '../../styles/blog.module.css'
 import {
+  getAllMonths,
   getPosts,
   getFirstPost,
   getRankedPosts,
@@ -19,11 +21,12 @@ import {
 } from '../../lib/notion/client'
 
 export async function getStaticProps() {
-  const [posts, firstPost, rankedPosts, tags] = await Promise.all([
+  const [posts, firstPost, rankedPosts, tags, months] = await Promise.all([
     getPosts(),
     getFirstPost(),
     getRankedPosts(),
     getAllTags(),
+    getAllMonths(),
   ])
 
   return {

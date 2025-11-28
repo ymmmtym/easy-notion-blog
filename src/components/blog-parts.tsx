@@ -9,6 +9,8 @@ import {
   getDateStr,
   getTagLink,
   getTagBeforeLink,
+  getMonthLink,
+  getMonthDisplay,
 } from '../lib/blog-helpers'
 import styles from '../styles/blog-parts.module.css'
 
@@ -145,6 +147,32 @@ export const TagLinkList = ({ tags }) => {
           </li>
         )
       })}
+
+
+export const MonthLinkList = ({ months }) => {
+  if (!months || months.length === 0) return null
+
+  return (
+    <ul>
+      {months.map((month: string) => (
+        <li key={month}>
+          <Link href="/blog/month/[month]" as={getMonthLink(month)} passHref>
+            <a>{getMonthDisplay(month)}</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export const BlogMonthLink = ({ heading, months }) => (
+  <div className={styles.blogTagLink}>
+    <h3>{heading}</h3>
+    <NoContents contents={months} />
+    <MonthLinkList months={months} />
+  </div>
+)
+
     </ul>
   )
 }

@@ -69,3 +69,23 @@ export const parseYouTubeVideoId = (url: URL): string => {
 
   return ''
 }
+
+export const getMonthStr = (date: string): string => {
+  const dt = new Date(date)
+  const y = dt.getFullYear()
+  const m = ('00' + (dt.getMonth() + 1)).slice(-2)
+  return `${y}-${m}`
+}
+
+export const getMonthDisplay = (monthStr: string): string => {
+  const [y, m] = monthStr.split('-')
+  return `${y}年${m}月`
+}
+
+export const getMonthLink = (month: string) => {
+  return `/blog/month/${month}`
+}
+
+export const getMonthBeforeLink = (month: string, date: string) => {
+  return `/blog/month/${month}/before/${date}`
+}
